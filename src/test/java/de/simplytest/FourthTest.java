@@ -9,10 +9,7 @@ import org.junit.jupiter.api.Test;
 
 public class FourthTest {
     static Browser browser;
-    static Playwright pw;
     Page p = browser.newPage();
-    String url = "https://demoproject.simplytest.de/";
-    String checkoutPageUrl = "https://autoprojekt.simplytest.de/checkout/";
     String name = "Myname";
     String surname = "Mysurname";
     String location = "Germany";
