@@ -21,6 +21,8 @@ public class CheckoutPage {
     String PLACEORDER = "[data-value=\"Place order\"]";
     String ORDERPAGE = "#post-7 h1";
     String checkoutPageUrl = "https://autoprojekt.simplytest.de/checkout/";
+    String orderPageName = "Order received";
+
     public CheckoutPage(Page p) {
         this.p = p;
     }
@@ -38,7 +40,7 @@ public class CheckoutPage {
         p.locator(PHONE).fill(phone);
         p.locator(EMAIL).fill(email);
         p.locator(PLACEORDER).click();
-        assertThat(p.locator(ORDERPAGE)).containsText("Order received");
+        assertThat(p.locator(ORDERPAGE)).containsText(orderPageName);
         p.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshot5.png")).setFullPage(true));
         return this;
     }
