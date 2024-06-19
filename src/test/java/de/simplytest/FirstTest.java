@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class FirstTest {//
+public class FirstTest {
     String url= "https://www.netflix.com/signup/planform/";
 
     @Test
@@ -19,7 +19,8 @@ public class FirstTest {//
         p.navigate(url);
         assertThat(p).hasTitle("Netflix");
         p.locator("#onetrust-reject-all-handler").click();
-        p.locator("//*[class=\"onetrust-reject-all-handler\"]").click();
+        p.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshot1.png")));
+        p.locator("[data-uia=\"continue-button\"]").click();
         p.locator("[data-uia=\"cta-plan-selection\"]").click();
         p.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshot2.png")));
         assertThat(p.locator(".stepIndicator")).containsText("1");
