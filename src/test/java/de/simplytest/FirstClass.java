@@ -9,7 +9,7 @@ class FirstClass extends BaseClass {
     String url= "https://www.netflix.com/signup/planform/";
 
     @Test
-        public void firstTestImplementation(){
+        void firstTestImplementation(){
         p.navigate(url);
         assertThat(p).hasTitle("Netflix");
         p.locator("#onetrust-reject-all-handler").click();
