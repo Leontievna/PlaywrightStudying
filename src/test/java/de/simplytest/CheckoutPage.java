@@ -1,6 +1,7 @@
 package de.simplytest;
 
 import com.microsoft.playwright.Page;
+import io.qameta.allure.Step;
 
 import java.nio.file.Paths;
 
@@ -26,7 +27,7 @@ public class CheckoutPage {
     public CheckoutPage(Page p) {
         this.p = p;
     }
-
+    @Step("Fill the form")
     public CheckoutPage fillTheForms2(String name, String surname, String location, String address, String postcode, String city, String phone, String email) {
         assertThat(p).hasURL(checkoutPageUrl);
         p.locator(NAMEINPUT).fill(name);
