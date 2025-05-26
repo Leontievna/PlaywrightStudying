@@ -1,17 +1,14 @@
 package de.simplytest;
 
 import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Response;
-
-import java.nio.file.Paths;
+import io.qameta.allure.Step;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class ShopPage {
-    Page p;
+public class ShopPage extends BaseClass {
     String NAMESHOP = "#main header h1";
     String CARTHASSUM = "#site-header-cart a span.amount";
-    String CARTCONTAINS = ".woocommerce-mini-cart__buttons";
+    String CARTCONTAINS = "a.added_to_cart";
     String ADDALBUM = "[data-product_sku=\"woo-album\"]";
     String url = "https://demoproject.simplytest.de/";
     String expectedPriceAmount = "15,00";
@@ -22,24 +19,19 @@ public class ShopPage {
     public ShopPage(Page p) {
         this.p = p;
     }
-
+    @Step("Open page 'demoproject'")
     public void openPage() {
         p.navigate(url);
         assertThat(p.locator(NAMESHOP)).containsText(pageName);
         assertThat(p.locator(CARTHASSUM)).containsText(defaultPriceAmount);
     }
-
+    @Step("Buy album")
     public void buyAlbum() {
-        Response response = p.waitForResponse(resp -> "https://autoprojekt.simplytest.de/?wc-ajax=add_to_cart"
-                .equals(resp.url()) && resp.status() == 200, () -> {
-            p.locator(ADDALBUM).click();
-        });
         assertThat(p.locator(CARTHASSUM)).containsText(expectedPriceAmount);
     }
-
+    @Step("Check cart")
     public void checkCart() {
         p.locator(CARTHASSUM).hover();
-        p.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshot3-1.png")));
         p.locator(CARTCONTAINS).getByText(cartPageLink).click();
     }
 

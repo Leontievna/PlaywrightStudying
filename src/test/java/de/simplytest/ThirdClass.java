@@ -1,15 +1,11 @@
 package de.simplytest;
 
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
 import org.junit.jupiter.api.Test;
 
-import java.nio.file.Paths;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-public class ThirdTest {
+class ThirdClass extends BaseClass {
     String name = "Klara";
     String nameLocator = "#name";
     String email = "KlaraKunde@dmx.de";
@@ -29,10 +25,7 @@ public class ThirdTest {
     String homeMenu = ".nav-menu li:nth-child(1)";
 
     @Test
-    public void fourthDotOneTest() {
-        Playwright pw = Playwright.create();
-        Browser chrome = pw.chromium().launch();
-        Page p = chrome.newPage();
+    void thirdTest() {
         p.navigate(url);
         assertThat(p.locator(submitButton)).isDisabled();
         p.locator(nameLocator).fill(name);
@@ -48,18 +41,13 @@ public class ThirdTest {
             assertEquals("Further information is not to be found here either!", dialog.message());
             dialog.accept();
         });
-        p.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshot2-1.png")).setFullPage(true));
         p.locator(anotherInfo).click();
         p.onDialog(dialog -> {
             assertEquals("Further information is not to be found here either!", dialog.message());
             dialog.accept();
         });
-        p.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshot2-2.png")).setFullPage(true));
         p.locator(angebot).click();
-        p.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshot2.png")).setFullPage(true));
         p.navigate(urlProduct);
-        p.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshot2-3.png")).setFullPage(true));
         p.locator(homeMenu).click();
-        p.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshot2-4.png")).setFullPage(true));
     }
 }
