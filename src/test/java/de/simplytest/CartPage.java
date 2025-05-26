@@ -5,7 +5,7 @@ import io.qameta.allure.Step;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class CartPage extends BaseClass {
+public class CartPage extends BaseTest {
     String checkoutPageUrl = "https://autoprojekt.simplytest.de/checkout/";
     String CARTHASSUM = "#site-header-cart a span.amount";
     String CARTUPDATE = "button[name=\"update_cart\"]";

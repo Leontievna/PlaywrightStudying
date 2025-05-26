@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-class SecondClass extends BaseClass {
+class SecondTest extends BaseTest {
     String url = "https://www.wikipedia.com";
     String input = "//*[@id=\"searchInput\"]";
     String searchButton = "button.pure-button-primary-progressive";

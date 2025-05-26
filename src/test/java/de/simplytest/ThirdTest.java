@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-class ThirdClass extends BaseClass {
+class ThirdTest extends BaseTest {
     String name = "Klara";
     String nameLocator = "#name";
     String email = "KlaraKunde@dmx.de";

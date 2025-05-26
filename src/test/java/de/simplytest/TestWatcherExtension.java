@@ -11,9 +11,9 @@ public class TestWatcherExtension implements TestWatcher {
     @Override
     public void testFailed(ExtensionContext context, Throwable cause) {
         if (context.getTestInstance().isPresent()
-                && context.getTestInstance().get() instanceof BaseClass) {
+                && context.getTestInstance().get() instanceof BaseTest) {
 
-            BaseClass test = (BaseClass) context.getTestInstance().get();
+            BaseTest test = (BaseTest) context.getTestInstance().get();
             test.takeScreenshot(); // Скриншот до закрытия контекста
             test.closeResources(); // Закрываем контекст после сбора артефактов
 
@@ -24,9 +24,9 @@ public class TestWatcherExtension implements TestWatcher {
     @Override
     public void testSuccessful(ExtensionContext context) {
         if (context.getTestInstance().isPresent()
-                && context.getTestInstance().get() instanceof BaseClass) {
+                && context.getTestInstance().get() instanceof BaseTest) {
 
-            BaseClass test = (BaseClass) context.getTestInstance().get();
+            BaseTest test = (BaseTest) context.getTestInstance().get();
             test.closeResources(); // Закрываем контекст для успешных тестов
         }
     }

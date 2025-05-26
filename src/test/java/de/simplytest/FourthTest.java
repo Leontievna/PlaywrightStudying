@@ -2,7 +2,7 @@ package de.simplytest;
 
 import org.junit.jupiter.api.Test;
 
-class FourthClass extends BaseClass {
+class FourthTest extends BaseTest {
     String name = "Myname";
     String surname = "Mysurname";
     String location = "Germany";

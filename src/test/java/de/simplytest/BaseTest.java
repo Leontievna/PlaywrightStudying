@@ -8,7 +8,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import java.io.ByteArrayInputStream;
 
 @ExtendWith(de.simplytest.TestWatcherExtension.class)
-public class BaseClass {
+public class BaseTest {
     protected static Playwright playwright;
     protected static Browser browser;
     protected BrowserContext context;
@@ -17,7 +17,7 @@ public class BaseClass {
     @BeforeAll
     static void launchBrowser() {
         playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+        browser = playwright.chromium().launch();
     }
 
     @AfterAll

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-class FirstClass extends BaseClass {
+class FirstTest extends BaseTest {
     String url= "https://www.netflix.com/signup/planform/";
 
     @Test

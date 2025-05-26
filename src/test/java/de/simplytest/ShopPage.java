@@ -5,7 +5,7 @@ import io.qameta.allure.Step;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class ShopPage extends BaseClass {
+public class ShopPage extends BaseTest {
     String NAMESHOP = "#main header h1";
     String CARTHASSUM = "#site-header-cart a span.amount";
     String CARTCONTAINS = "a.added_to_cart";
